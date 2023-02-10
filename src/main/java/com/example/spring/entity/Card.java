@@ -2,17 +2,15 @@ package com.example.spring.entity;
 
 import lombok.*;
 
-import java.util.List;
-
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Person {
+public class Card {
 
     private String id;
     private String name;
-    private List<Card> cards;
+    private String grade;
 
 }
