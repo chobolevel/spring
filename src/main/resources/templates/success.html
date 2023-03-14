@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>SUCCESS</h2>
+    <table>
+        <tr>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>성별</th>
+        </tr>
+        <tr th:each="member : ${memberList}">
+            <td th:text="${member.id}"></td>
+            <td th:text="${member.name}"></td>
+            <td th:text="${member.gender}"></td>
+        </tr>
+    </table>
+</body>
+</html>
