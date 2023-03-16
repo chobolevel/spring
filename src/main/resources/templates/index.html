@@ -16,5 +16,16 @@
             <button type="submit">Excel Upload</button>
         </form>
     </div>
+    <div>
+        <form action="/img/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="uploadfile" multiple="multiple">
+            <button type="submit">Img Upload</button>
+        </form>
+    </div>
+    <div>
+        <form action="/img/download" method="get">
+            <button type="submit">Img Download</button>
+        </form>
+    </div>
 </body>
 </html>

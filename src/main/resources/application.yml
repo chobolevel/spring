@@ -9,5 +9,9 @@ spring:
     consumer:
       bootstrap-servers: localhost:9092
       group-id: message_group
-      isolation-level: read_committed
-      enable-auto-commit: true
+      auto-offset-reset: latest
+  servlet:
+    multipart:
+      location: C:\dev\img
+      max-file-size: 200MB
+      max-request-size: 100MB

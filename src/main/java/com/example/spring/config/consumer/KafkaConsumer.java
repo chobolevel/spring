@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class KafkaConsumer {
 
-    @KafkaListener(topicPartitions = @TopicPartition(topic = "message", partitions = {"0"}))
+    @KafkaListener(id = "id1", idIsGroup = false, topics = "message")
     public void onMessage(@Header(KafkaHeaders.GROUP_ID) String groupId, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,  Person person) {
         log.info("---------------------------------------");
         log.info("onMessage called");
@@ -22,7 +22,7 @@ public class KafkaConsumer {
         log.info("---------------------------------------");
     }
 
-    @KafkaListener(topicPartitions = @TopicPartition(topic = "message", partitions = {"0"}))
+    @KafkaListener(id = "id2", idIsGroup = false, topicPartitions = {@TopicPartition(topic = "message", partitions = "0")})
     public void onMessage1(@Header(KafkaHeaders.GROUP_ID) String groupId, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition, Person person) {
         log.info("---------------------------------------");
         log.info("onMessage1 called");
@@ -30,5 +30,15 @@ public class KafkaConsumer {
         log.info("onMessage1 partition id : {}", partition);
         log.info("---------------------------------------");
     }
+
+//    @KafkaListener(id = "id3", idIsGroup = false, topics = "message")
+//    public void onMessage2(@Header(KafkaHeaders.GROUP_ID) String groupId, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition, Person person) {
+//        log.info("---------------------------------------");
+//        log.info("onMessage2 called");
+//        log.info("onMessage2 groupId : {}", groupId);
+//        log.info("onMessage2 partition id : {}", partition);
+//        log.info("---------------------------------------");
+//    }
+
 
 }

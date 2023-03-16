@@ -20,18 +20,35 @@ public class KafkaController {
 
     private final KafkaTemplate<String, Person> kafkaTemplate;
 
-    @PostMapping("test")
-    public ResponseEntity<?> home(@RequestBody Person person) {
+    @PostMapping("test1")
+    public ResponseEntity<?> test1(@RequestBody Person person) {
         ListenableFuture<SendResult<String, Person>> future = kafkaTemplate.send("message", "0", person);
         future.addCallback(new ListenableFutureCallback<SendResult<String, Person>>() {
             @Override
             public void onFailure(Throwable ex) {
-                System.out.println("FAIL TO SEND");
+                System.out.println("test1 FAIL TO SEND");
             }
 
             @Override
             public void onSuccess(SendResult<String, Person> result) {
-                System.out.println("SUCCESS TO SEND");
+                System.out.println("test1 SUCCESS TO SEND");
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("test2")
+    public ResponseEntity<?> test2(@RequestBody Person person) {
+        ListenableFuture<SendResult<String, Person>> future = kafkaTemplate.send("message", "1", person);
+        future.addCallback(new ListenableFutureCallback<SendResult<String, Person>>() {
+            @Override
+            public void onFailure(Throwable ex) {
+                System.out.println("test2 FAIL TO SEND");
+            }
+
+            @Override
+            public void onSuccess(SendResult<String, Person> result) {
+                System.out.println("test2 SUCCESS TO SEND");
             }
         });
         return new ResponseEntity<>(HttpStatus.OK);
