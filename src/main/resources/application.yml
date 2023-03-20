@@ -15,3 +15,12 @@ spring:
       location: C:\dev\img
       max-file-size: 200MB
       max-request-size: 100MB
+  redis:
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 2
+    port: 6379
+    host: localhost
+    password: ""
