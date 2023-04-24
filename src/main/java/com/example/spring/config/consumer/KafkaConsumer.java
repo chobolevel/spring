@@ -10,7 +10,7 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.stereotype.Component;
 @Slf4j
-@Component
+//@Component
 public class KafkaConsumer {
 
     @KafkaListener(id = "id1", idIsGroup = false, topics = "message")
