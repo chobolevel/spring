@@ -8,7 +8,7 @@ import org.aspectj.lang.annotation.Aspect;
 @Slf4j
 public class RootAop {
 
-    @Around(value = "execution(* com.example.spring.controller.RootController.aopTest(*)")
+    @Around("execution(* com.example.spring.controller.RootController(*))")
     public void printCurTime() {
         System.out.println(System.currentTimeMillis());
     }
